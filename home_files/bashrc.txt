@@ -21,8 +21,6 @@ export HISTIGNORE="..:...:c:h:l:l1:p:pwd:gst:gd:exit:* --help" # Exclude mundane
 # Command Prompt (http://jonisalonen.com/2012/your-bash-prompt-needs-this)
 separator="|"
 prompt="[" # Opening bracket.
-prompt+="\[$GREY\]\t\[$NORMAL\]" # Grey timestamp.
-prompt+="$separator"
 prompt+="\u@\h" # Default color user and host (i.e. user@host).
 prompt+="$separator"
 prompt+="\$(__git_ps1 \"\[$PURPLE\]%s\[$NORMAL\]$separator\")" # Purple Git branch with separator.
@@ -33,26 +31,4 @@ export PS1=$prompt
 # Bash Completion (http://bash-completion.alioth.debian.org)
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
-fi
-
-# Z (https://github.com/rupa/z)
-. `brew --prefix`/etc/profile.d/z.sh
-
-# rbenv (https://github.com/sstephenson/rbenv)
-if [ -d /usr/local/bin ]; then
-  export PATH="/usr/local/bin:$PATH" # OSX
-fi
-
-if [ -d $HOME/.rbenv/bin ]; then
-  export PATH="$HOME/.rbenv/bin:$PATH" # Ubuntu
-fi
-
-eval "$(rbenv init -)"
-
-# NPM (http://nodejs.org)
-export PATH="$PATH:/usr/local/share/npm/bin"
-
-# Travis CI (https://travis-ci.org)
-if [ -e "$HOME/.travis/travis.sh" ]; then
-  source "$HOME/.travis/travis.sh"
 fi
